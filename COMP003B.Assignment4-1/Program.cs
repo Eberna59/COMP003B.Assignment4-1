@@ -1,3 +1,6 @@
+using COMP003B.Assignment4_1.Middleware;
+using Microsoft.AspNetCore.Mvc;
+
 namespace COMP003B.Assignment4_1
 {
     public class Program
@@ -19,10 +22,17 @@ namespace COMP003B.Assignment4_1
                 app.UseHsts();
             }
 
+            app.UseMiddleware<RequestLoggingMiddleware>();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "songs",
+                pattern: "Songs/Details/{id:int}",
+                defaults: new { Controller = "Songs", action = "Details" });
 
             app.MapStaticAssets();
             app.MapControllerRoute(
