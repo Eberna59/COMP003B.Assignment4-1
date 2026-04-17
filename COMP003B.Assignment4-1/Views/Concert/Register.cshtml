@@ -1,0 +1,44 @@
+﻿@model COMP003B.Assignment4_1.Models.ConcertRegistration
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form asp-controller="Concert" asp-action="Register" method="Post">
+    @Html.AntiForgeryToken()
+
+    <div asp-asp-validation-summary="All" class="text-danger"></div>
+
+    <div>
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="City"></label>
+        <input asp-for="City" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="TicketCount"></label>
+        <input asp-for="TicketCount" />
+        <span asp-validation-for="TicketCount" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+@section Scripts {
+@{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

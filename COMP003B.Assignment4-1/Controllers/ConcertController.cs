@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace COMP003B.Assignment4_1.Controllers
 {
-    [Route("concert")]
+    [Microsoft.AspNetCore.Mvc.Route("concert")]
     public class ConcertController : Controller
     {
         [HttpGet("register/{city?}")]
