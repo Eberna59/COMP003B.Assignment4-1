@@ -8,7 +8,7 @@
 <form asp-controller="Concert" asp-action="Register" method="Post">
     @Html.AntiForgeryToken()
 
-    <div asp-asp-validation-summary="All" class="text-danger"></div>
+    <div asp-validation-summary="All" class="text-danger"></div>
 
     <div>
         <label asp-for="FullName"></label>
